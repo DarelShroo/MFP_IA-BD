@@ -1,0 +1,84 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+*.swp
+
+# Editor/IDE Settings
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Python - Bytecode and Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python - Distribution / Packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Python - Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Python - Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Python - Type check
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Python - Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Node.js (Standard practice)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs and Temporary Files
+*.log
+tmp/
+temp/
+
+# Build Directories
+dist/
+build/
