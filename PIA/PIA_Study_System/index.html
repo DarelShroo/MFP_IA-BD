@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIA Study System - Programación de Inteligencia Artificial</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Load Data First -->
+    <script src="scripts/data.js"></script>
+    <script src="scripts/code_puzzles.js"></script>
+    <script src="scripts/tasks.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <div class="logo-area">
+          <div class="logo-icon">🧠</div>
+          <h1>PIA Study<br /><span class="highlight">System</span></h1>
+        </div>
+
+        <div class="nav-links" id="module-nav">
+          <!-- Modules injected by JS -->
+        </div>
+
+        <div class="user-status">
+          <div class="progress-ring-container">
+            <svg class="progress-ring" width="60" height="60">
+              <circle
+                class="progress-ring__circle"
+                stroke="var(--primary)"
+                stroke-width="4"
+                fill="transparent"
+                r="26"
+                cx="30"
+                cy="30"
+              />
+            </svg>
+            <span class="progress-text" id="global-progress">0%</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <header class="top-bar">
+          <div class="breadcrumbs">
+            <span id="current-module-name">Selecciona un Módulo</span>
+            <span class="separator">/</span>
+            <span id="current-section-name">Inicio</span>
+          </div>
+          <div class="search-bar">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Buscar conceptos (ej: 'TensorFlow', 'Overfitting')..."
+            />
+          </div>
+        </header>
+
+        <div id="content-display" class="content-area">
+          <div class="welcome-screen">
+            <h2>Bienvenido al Sistema de Estudio PIA</h2>
+            <p>
+              Selecciona un módulo del menú lateral para comenzar tu
+              entrenamiento en Programación de IA.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <h3>Módulos</h3>
+                <p class="stat-number">6</p>
+              </div>
+              <div class="stat-card">
+                <h3>Conceptos</h3>
+                <p class="stat-number">Searching...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modals for Quiz, Flashcards, etc. -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
