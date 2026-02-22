@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIA05 - Darel Martínez Caballero</title>
+    <style>
+      /* General Styles (Screen & Print) */
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #34495e;
+        --accent-color: #2980b9;
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --code-bg: #f4f6f7;
+        --border-color: #ecf0f1;
+        --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        --font-serif: "Cambria", "Times New Roman", serif; /* More Word-like */
+      }
+
+      body {
+        font-family: var(--font-serif);
+        line-height: 1.5;
+        color: var(--text-color);
+        max-width: 21cm; /* A4 width approx */
+        margin: 0 auto;
+        padding: 40px;
+        background-color: var(--bg-color);
+        text-align: justify; /* Professional justification */
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-main);
+        color: var(--primary-color);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      h1 {
+        font-size: 24pt;
+        text-align: center;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+        margin-bottom: 50px;
+      }
+
+      h2 {
+        font-size: 18pt;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+      }
+
+      h3 {
+        font-size: 14pt;
+        color: var(--secondary-color);
+      }
+
+      p {
+        margin-bottom: 1em;
+      }
+
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Cover Page */
+      .cover-page {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh; /* Adjust for screen */
+        margin-bottom: 50px;
+        page-break-after: always;
+      }
+
+      .cover-title {
+        font-size: 28pt;
+        font-weight: bold;
+        margin-bottom: 60px;
+        font-family: var(--font-main);
+        color: var(--primary-color);
+      }
+
+      .cover-info {
+        font-size: 14pt;
+        margin: 15px 0;
+        font-family: var(--font-main);
+      }
+
+      /* Table of Contents */
+      /* Table of Contents */
+      nav {
+        background-color: #fff;
+        padding: 0;
+        margin-bottom: 50px;
+        page-break-after: always;
+      }
+
+      nav h2 {
+        text-align: center;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+        font-size: 20pt;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+      }
+
+      nav li {
+        margin: 0;
+        display: block; /* Ensure block layout, no flex */
+      }
+
+      nav a {
+        display: block;
+        padding: 10px 15px; /* Comfortable touch/click target */
+        color: var(--text-color);
+        text-decoration: none;
+        border-bottom: 1px solid #edf2f4;
+        transition: background-color 0.2s;
+        font-family: var(--font-main);
+      }
+
+      nav a:hover {
+        background-color: #f8f9fa;
+        color: var(--accent-color);
+      }
+
+      /* Top Level Items (1. Objetivos, 2. Desarrollo, etc) */
+      nav > ul > li > a {
+        font-weight: 700;
+        font-size: 13pt;
+        color: var(--primary-color);
+        background-color: #fcfcfc;
+        border-bottom: 2px solid #e0e0e0;
+      }
+
+      /* Nested List Container */
+      nav ul ul {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+      }
+
+      /* Nested List Items (Sub-levels) */
+      nav ul ul li {
+        border-bottom: none;
+      }
+
+      nav ul ul li a {
+        padding-left: 40px; /* Indent sub-items */
+        font-size: 11pt;
+        color: #555;
+        font-weight: normal;
+        border-bottom: 1px solid #f5f5f5;
+        display: block;
+        width: auto;
+      }
+
+      nav ul ul li a:hover {
+        padding-left: 45px; /* Subtle movement on hover */
+        background-color: #f8f9fa;
+      }
+
+      /* Scroll Correction for Anchors */
+      section,
+      .exercise,
+      div[id] {
+        scroll-margin-top: 20px;
+      }
+
+      /* Exercises & Content */
+      .exercise {
+        margin-bottom: 30px;
+        break-inside: avoid; /* Try to keep exercises together if small */
+      }
+
+      .code-block {
+        background-color: var(--code-bg);
+        padding: 15px;
+        border-left: 4px solid var(--primary-color);
+        font-family: "Consolas", "Courier New", monospace;
+        font-size: 10pt;
+        overflow-x: auto;
+        margin: 15px 0;
+        white-space: pre-wrap; /* Wrap long code lines */
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .results {
+        background-color: #e8f6f3;
+        padding: 15px;
+        border-left: 4px solid #1abc9c;
+        margin: 15px 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .question-box {
+        background-color: #fef9e7;
+        padding: 15px;
+        border-left: 4px solid #f1c40f;
+        margin: 15px 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* Images */
+      .image-container {
+        text-align: center;
+        margin: 25px 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      img {
+        max-width: 80%;
+        height: auto;
+        border: 1px solid #ddd;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-caption {
+        font-style: italic;
+        font-size: 10pt;
+        color: #555;
+        margin-top: 8px;
+        font-family: var(--font-main);
+      }
+
+      /* Bibliography */
+      .bibliography {
+        padding-left: 2em;
+        text-indent: -2em; /* Hanging indent */
+      }
+
+      /* PRINT SPECIFIC STYLES */
+      @media print {
+        @page {
+          size: A4;
+          margin: 2.54cm; /* Standard Word Margin */
+        }
+
+        body {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          font-size: 12pt; /* Standard print size */
+          line-height: 1.5;
+        }
+
+        /* Color Adjustments for Print */
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+
+        /* Prevent breaks */
+        h1,
+        h2,
+        h3,
+        h4 {
+          break-after: avoid;
+          page-break-after: avoid;
+          margin-top: 2em; /* Ensure distinct separation */
+        }
+
+        h2 {
+          margin-top: 3em; /* More space before main sections */
+          border-bottom: 2px solid #000;
+        }
+
+        /* Force page break after cover and TOC */
+        .cover-page,
+        nav {
+          page-break-after: always !important;
+          break-after: always !important;
+          height: auto; /* Reset height for print flow */
+          margin-top: 0;
+          margin-bottom: 0;
+          display: block; /* Flex can be weird in print sometimes */
+          padding-top: 30%; /* Re-center cover roughly */
+        }
+
+        nav {
+          padding-top: 0;
+          border: none;
+        }
+
+        .image-container,
+        .code-block,
+        .results,
+        .question-box {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+
+        /* Avoid exercises splitting weirdly */
+        .exercise {
+          break-inside: auto; /* Allow breaking inside large exercises */
+        }
+
+        /* Ensure images aren't too huge or cut off */
+        img {
+          max-width: 90%;
+          max-height: 22cm; /* Fit within a page height approx */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Portada -->
+    <div class="cover-page">
+      <div class="cover-title">
+        Informe de Práctica: Redes Neuronales Profundas
+      </div>
+      <div class="cover-info">
+        <strong>Nombre:</strong> Darel Martínez Caballero
+      </div>
+      <div class="cover-info"><strong>Curso académico:</strong> 2025/2026</div>
+      <div class="cover-info">
+        <strong>Asignatura:</strong> PIA (Programación de Inteligencia
+        Artificial)
+      </div>
+      <div class="cover-info"><strong>Ejercicio:</strong> PIA05</div>
+    </div>
+
+    <!-- Índice -->
+    <nav>
+      <h2>Índice</h2>
+      <ul>
+        <li><a href="#objetivos">1. Objetivos del documento</a></li>
+        <li>
+          <a href="#desarrollo">2. Desarrollo</a>
+          <ul>
+            <li>
+              <a href="#ejercicio1">Ejercicio 1: Importación de Módulos</a>
+            </li>
+            <li><a href="#ejercicio2">Ejercicio 2: Carga del Dataset</a></li>
+            <li>
+              <a href="#ejercicio3"
+                >Ejercicio 3: Exploración y Preprocesamiento</a
+              >
+            </li>
+            <li>
+              <a href="#ejercicio4">Ejercicio 4: Creación del Modelo Base</a>
+            </li>
+            <li>
+              <a href="#ejercicio5"
+                >Ejercicio 5: Entrenamiento del Modelo Base</a
+              >
+            </li>
+            <li><a href="#ejercicio6">Ejercicio 6: Mejora del Modelo</a></li>
+            <li>
+              <a href="#ejercicio7">Ejercicio 7: Evaluación de Resultados</a>
+            </li>
+            <li>
+              <a href="#ejercicio8"
+                >Ejercicio 8: Visualización de Predicciones</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="#conclusiones">3. Conclusiones finales</a></li>
+        <li><a href="#bibliografia">4. Bibliografía</a></li>
+      </ul>
+    </nav>
+
+    <!-- Objetivos -->
+    <section id="objetivos">
+      <h2>1. Objetivos del documento</h2>
+      <p>
+        El presente documento tiene como objetivo documentar detalladamente el
+        desarrollo de la práctica PIA05, centrada en la implementación,
+        entrenamiento y evaluación de modelos de Redes Neuronales
+        Convolucionales (CNN) para la clasificación de imágenes utilizando el
+        dataset CIFAR-10.
+      </p>
+    </section>
+
+    <!-- Desarrollo -->
+    <section id="desarrollo">
+      <h2>2. Desarrollo</h2>
+
+      <div id="ejercicio1" class="exercise">
+        <h3>Ejercicio 1: Importación de Módulos</h3>
+        <p>
+          Se importan las librerías fundamentales para el desarrollo de redes
+          neuronales con Keras (backend de TensorFlow), así como NumPy para
+          manipulación numérica y Matplotlib para visualización.
+        </p>
+        <pre class="code-block">
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Flatten, Dense, Input, Conv2D, MaxPooling2D
+from keras.datasets import cifar10
+from keras.utils import to_categorical
+from matplotlib import pyplot as plt</pre
+        >
+        <div class="image-container">
+          <img
+            src="./imagenes/Captura%20de%20pantalla%20-2026-02-07%2022-21-03.png"
+            alt="Captura de pantalla Ejercicio 1"
+          />
+          <div class="image-caption">
+            Figura 1. Importación de módulos y configuración inicial.
+          </div>
+        </div>
+      </div>
+
+      <div id="ejercicio2" class="exercise">
+        <h3>Ejercicio 2: Carga del Dataset</h3>
+        <p>
+          Se carga el dataset CIFAR-10, dividiéndolo en conjuntos de
+          entrenamiento (train) y prueba (test). Se visualiza la primera imagen
+          del conjunto de entrenamiento para verificar la carga correcta.
+        </p>
+        <pre class="code-block">
+(X_train, y_train), (X_test, y_test) = cifar10.load_data()
+plt.imshow(X_train[0])</pre
+        >
+        <div class="image-container">
+          <img
+            src="./imagenes/Captura%20de%20pantalla%20-2026-02-07%2022-21-17.png"
+            alt="Captura de pantalla Ejercicio 2"
+          />
+          <div class="image-caption">
+            Figura 2. Carga y visualización inicial del dataset.
+          </div>
+        </div>
+      </div>
+
+      <div id="ejercicio3" class="exercise">
+        <h3>Ejercicio 3: Exploración y Preprocesamiento</h3>
+        <p>
+          Se normalizan los datos de entrada dividiendo los valores de píxeles
+          por 255.0 para obtener un rango entre 0 y 1. Las etiquetas se
+          convierten a formato <em>one-hot encoding</em> utilizando
+          <code>to_categorical</code>.
+        </p>
+        <pre class="code-block">
+X_train = X_train.astype('float32') / 255.0
+X_test = X_test.astype('float32') / 255.0
+y_train = to_categorical(y_train)
+y_test = to_categorical(y_test)
+# Dimensiones: (50000, 32, 32, 3)</pre
+        >
+        <div class="image-container">
+          <img
+            src="./imagenes/Captura%20de%20pantalla%20-2026-02-07%2022-21-25.png"
+            alt="Captura de pantalla Ejercicio 3"
+          />
+          <div class="image-caption">
+            Figura 3. Normalización y verificación de dimensiones.
+          </div>
+        </div>
+      </div>
+
+      <div id="ejercicio4" class="exercise">
+        <h3>Ejercicio 4: Creación del Modelo Base</h3>
+        <p>
+          Se construye un modelo secuencial básico con capas convolucionales
+          (Conv2D), de pooling (MaxPooling2D), aplanado (Flatten) y capas densas
+          (Dense).
+        </p>
+        <pre class="code-block">
+model = Sequential([
+    Input(shape=(32, 32, 3)),
+    Conv2D(32, (3, 3), activation='relu'),
+    MaxPooling2D((2, 2)),
+    Conv2D(64, (3, 3), activation='relu'),
+    MaxPooling2D((2, 2)),
+    Flatten(),
+    Dense(64, activation='relu'),
+    Dense(10, activation='softmax')
+])</pre
+        >
+        <div class="image-container">
+          <img
+            src="./imagenes/Captura%20de%20pantalla%20-2026-02-07%2022-21-38.png"
+            alt="Captura de pantalla Ejercicio 4"
+          />
+          <div class="image-caption">
+            Figura 4. Definición de la arquitectura del primer modelo.
+          </div>
+        </div>
+      </div>
+
+      <div id="ejercicio5" class="exercise">
+        <h3>Ejercicio 5: Entrenamiento del Modelo Base</h3>
+        <p>
+          Se compila el modelo con el optimizador Adam y función de pérdida de
+          entropía cruzada categórica. Se entrena durante 20 épocas.
+        </p>
+        <div class="results">
+          <strong>Resultados obtenidos:</strong><br />
+          Precisión final en entrenamiento (Epoch 20): ~87.5%<br />
+          Precisión en test: 67.92%<br />
+          Pérdida en test: 1.2328
+        </div>
+        <div class="image-container">
+          <img
+            src="./imagenes/Captura%20de%20pantalla%20-2026-02-07%2022-21-55.png"
+            alt="Captura de pantalla Ejercicio 5"
+          />
+          <div class="image-caption">
+            Figura 5. Proceso de entrenamiento y métricas del primer modelo.
+          </div>
+        </div>
+      </div>
+
+      <div id="ejercicio6" class="exercise">
+        <h3>Ejercicio 6: Mejora del Modelo</h3>
+        <p>
+          Se diseña una arquitectura más profunda (añadiendo una capa Conv2D de
+          128 filtros y capas densas más grandes) y se entrena durante 50 épocas
+          para intentar mejorar el rendimiento.
+        </p>
+        <pre class="code-block">
+model2 = Sequential([
+    ...
+    Conv2D(128, ...),
+    ...
+    epochs=50
+    ...
+])</pre
+        >
+        <div class="results">
+          <strong>Resultados Modelo Mejorado:</strong><br />
+          Precisión final en entrenamiento: 98.68%<br />
+          Precisión en test: 69.77%
+        </div>
+        <div class="question-box">
+          <strong>Pregunta: ¿Has conseguido mejorar la precisión?</strong><br />
+          Sí, se ha conseguido una mejora ligera en la precisión del conjunto de
+          test, pasando de un 67.92% a un 69.77%. Sin embargo, la mejora en el
+          conjunto de entrenamiento ha sido drástica (llegando casi al 99%), lo
+          cual tiene implicaciones importantes sobre el ajuste del modelo que se
+          analizan a continuación.
+        </div>
+        <div class="image-container">
+          <img
+            src="./imagenes/Captura%20de%20pantalla%20-2026-02-07%2022-22-13.png"
+            alt="Captura de pantalla Ejercicio 6"
+          />
+          <div class="image-caption">
+            Figura 6. Entrenamiento del segundo modelo (50 epochs).
+          </div>
+        </div>
+      </div>
+
+      <div id="ejercicio7" class="exercise">
+        <h3>Ejercicio 7: Evaluación de Resultados</h3>
+        <p>
+          Se compara el rendimiento del modelo entre los datos de entrenamiento
+          y los datos de validación/test.
+        </p>
+        <div class="question-box">
+          <strong
+            >Pregunta: ¿Es muy diferente a la precisión alcanzada en el
+            entrenamiento?</strong
+          ><br />
+          Sí, existe una diferencia muy significativa. Mientras que en
+          entrenamiento se alcanza un <strong>98.46%</strong> de precisión, en
+          test se obtiene solo un <strong>69.77%</strong>. Una brecha de casi 30
+          puntos porcentuales indica un claro caso de
+          <strong>Overfitting (sobreajuste)</strong>: el modelo ha "memorizado"
+          los datos de entrenamiento pero no generaliza correctamente ante datos
+          nuevos.
+        </div>
+        <div class="image-container">
+          <img
+            src="./imagenes/Captura%20de%20pantalla%20-2026-02-07%2022-22-45.png"
+            alt="Captura de pantalla Ejercicio 7"
+          />
+          <div class="image-caption">
+            Figura 7. Comparativa de precisión (Train vs Test).
+          </div>
+        </div>
+      </div>
+
+      <div id="ejercicio8" class="exercise">
+        <h3>Ejercicio 8: Visualización de Predicciones</h3>
+        <p>
+          Se visualizan las predicciones del modelo sobre las primeras 25
+          imágenes del conjunto de test. Las etiquetas verdes indican que la
+          predicción coincide con la etiqueta real (acierto), mientras que las
+          rojas indican un error.
+        </p>
+        <div class="image-container">
+          <img
+            src="./imagenes/image.png"
+            alt="Visualización de 25 predicciones"
+          />
+          <div class="image-caption">
+            Figura 8. Matriz de 25 imágenes del conjunto de test con sus
+            predicciones.
+          </div>
+        </div>
+        <p>
+          <strong>Análisis de la imagen:</strong><br />
+          En la Figura 8 se observa una muestra representativa del desempeño del
+          modelo. Dada la precisión global del ~69%, es esperable observar
+          varios errores (texto en rojo) en esta muestra. El modelo tiende a
+          clasificar correctamente objetos con formas distintivas y fondos
+          contrastados (como aviones o barcos en el cielo/mar), pero muestra
+          confusión en categorías con características visuales compartidas, como
+          puede ser la distinción entre animales cuadrúpedos (gatos, perros,
+          ciervos) cuando la imagen es de baja resolución o tiene fondos
+          complejos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Conclusiones -->
+    <section id="conclusiones">
+      <h2>3. Conclusiones finales</h2>
+      <p>
+        <strong>Síntesis del trabajo:</strong><br />
+        En esta práctica se ha abordado la clasificación de imágenes del dataset
+        CIFAR-10 mediante Redes Neuronales Convolucionales. Se comenzó con un
+        modelo simple que alcanzó un 67% de precisión y se evolucionó a una
+        arquitectura más compleja entrenada por más tiempo, logrando casi un 70%
+        en test.
+      </p>
+      <p>
+        <strong>Análisis crítico:</strong><br />
+        El resultado más relevante es la detección de un severo
+        <strong>overfitting</strong> en el segundo modelo. Aumentar la
+        complejidad de la red y las épocas de entrenamiento mejoró drásticamente
+        el aprendizaje de los datos de entrenamiento (casi 99%), pero apenas
+        impactó en la validación. Esto demuestra que simplemente "hacer la red
+        más grande" no es suficiente.
+      </p>
+      <p>
+        <strong>Aprendizajes:</strong><br />
+        Se ha consolidado el conocimiento sobre la estructura de las CNNs (capas
+        Conv2D, Pooling), el preprocesamiento de imágenes y la interpretación de
+        curvas de aprendizaje. Se ha evidenciado empíricamente cómo el
+        desequilibrio entre la capacidad del modelo y la regularización conduce
+        al sobreajuste.
+      </p>
+    </section>
+
+    <!-- Enlace al Notebook -->
+    <section id="colab-notebook">
+      <h2>Acceso al Notebook</h2>
+      <p>
+        Para consultar el código fuente y la ejecución en vivo, puede acceder al
+        siguiente enlace de Google Colab:
+        <br />
+        <a
+          href="https://colab.research.google.com/drive/1N7F0-hyBVLNTw7435C3a2URC2JvSn2S-?hl=es#scrollTo=2iAj4e8IWBpW"
+          target="_blank"
+          >Ver Notebook en Google Colab</a
+        >
+      </p>
+    </section>
+
+    <!-- Bibliografía -->
+    <section id="bibliografia">
+      <h2>4. Bibliografía</h2>
+      <p class="bibliography">
+        Keras Team. (2024).
+        <em>Keras Documentation: CIFAR10 small images classification dataset</em
+        >. Recuperado de
+        <a href="https://keras.io/api/datasets/cifar10/"
+          >https://keras.io/api/datasets/cifar10/</a
+        >
+      </p>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  pia-backend:
+    build: 
+      context: ./backend
+    container_name: pia-study-container
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app  # Map backend source code for hot reload
+      - ./:/var/www/html # Map project root for static serving
+    environment:
+      - STATIC_DIR=/var/www/html
+

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIA Study System - Modelos de Inteligencia Artificial</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/utilities.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="scripts/data.js"></script>
+    <script src="scripts/main.js" defer></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo-area">
+          <h1>MIA<span>.System</span></h1>
+          <p>Advanced Study Assistant</p>
+        </div>
+
+        <nav class="main-nav">
+          <button class="nav-btn active" data-view="dashboard">
+            <span class="icon">📊</span> Dashboard
+          </button>
+          <div class="nav-section-title">Módulos</div>
+          <div id="module-list">
+            <!-- Populated by JS -->
+          </div>
+          <div class="nav-section-title">Herramientas</div>
+          <button class="nav-btn" data-view="glossary">
+            <span class="icon">📖</span> Glosario
+          </button>
+        </nav>
+
+        <div class="bottom-area">
+          <button class="nav-btn" data-view="chat">
+            <span class="icon">🤖</span> Asistente IA
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <header class="top-bar">
+          <h2 id="page-title">Bienvenido</h2>
+          <div class="user-status">
+            <span class="badge">Estudiante</span>
+          </div>
+        </header>
+
+        <div id="content-area" class="content-scroll">
+          <!-- Dynamic Content Goes Here -->
+          <div class="dashboard-view">
+            <div class="hero-card">
+              <h3>Modelos de Inteligencia Artificial</h3>
+              <p>
+                Sistema de estudio avanzado. Selecciona un módulo para comenzar.
+              </p>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span class="stat-number" id="total-modules">3</span>
+                <span class="stat-label">Módulos Activos</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number" id="read-progress">0%</span>
+                <span class="stat-label">Progreso Lectura</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Templates for Dynamic Content -->
+    <template id="module-view-template">
+      <div class="module-header">
+        <h1 class="module-title"></h1>
+        <p class="module-desc"></p>
+        <div class="module-actions">
+          <button class="action-btn" data-action="read">
+            📖 Leer Contenido
+          </button>
+          <button class="action-btn" data-action="flashcards">
+            ⚡ Flashcards
+          </button>
+          <button class="action-btn" data-action="quiz">📝 Quiz</button>
+          <button class="action-btn" data-action="blank">🧩 Completar</button>
+        </div>
+      </div>
+      <div class="module-content-placeholder">
+        Selecciona una actividad arriba para comenzar.
+      </div>
+    </template>
+  </body>
+</html>
